@@ -1,0 +1,35 @@
+{{
+portfolio_enabled= True
+active = "index"
+title = "Home page"
+
+}}
+{{extend "my_layout.html"}}
+<h2><b>Last Added Animals</b></h2>
+<div id="portfolio" class="bottom-border-shadow">
+                <div class="container bottom-border">
+                    <div class="row padding-top-40">
+                        <ul class="portfolio-group">
+                            <!-- Portfolio Item -->
+							
+							{{for animal in animals:}}
+                            <li class="portfolio-item col-sm-4 col-xs-6 margin-bottom-40">
+							{{=A(animal.name, _href=URL('animal', 'view', args=animal.id))}} - {{=A(animal.posted_by.username,_href=URL("default", "profile", args=animal.posted_by.username))}}
+									<a href="{{=URL('animal', 'view', args=animal.id)}}">
+                                    <figure class="animate wobble" >
+                                        <img src="{{=URL('download', args=animal.image)}}">
+                                        <figcaption >
+                                            <h3>{{=animal.name}}</h3>
+                                            <span>{{=animal.description}}</span>
+                                        </figcaption>
+                                    </figure>
+									</a>
+							</li>
+							{{pass}}
+							</ul> 
+							</div>
+							
+
+                           
+                    </div>
+                </div>

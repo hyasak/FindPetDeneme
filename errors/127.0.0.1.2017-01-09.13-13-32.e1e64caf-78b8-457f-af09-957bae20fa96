@@ -1,0 +1,873 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.AttributeError'> 'str' object has no attribute 'image'"
+p3
+sS'layer'
+p4
+S'C:\\Users\\dell\\Desktop\\webDev2016\\web2py\\applications\\FindPetDeneme\\views\\animal/view.html'
+p5
+sS'code'
+p6
+S'portfolio_enabled=False\ntitle = "Animal - View"\nresponse.write(\'\\n\\n\', escape=False)\nportfolio_enabled = globals().get("portfolio_enabled", True)\ntitle = globals().get("title", "")\ndef menu_items2():\n    # active = active or ""\n    active = globals().get("active", "")\n    items = [("index", "Home"),\n    ("animals", "Animals"),\n    ("cities", "Cities"),\n    ("report","Report")\n    ]\n    mylist = LI()\n    for (path, text) in items:\n        href = URL("default", path)\n        if path == active:\n            new_item= LI(A(text, _href=href, _class="active"))\n            mylist.components.append(new_item)\n        else:\n            new_item= LI(A(text, _href=href))\n            mylist.components.append(new_item)\n            pass\n        pass\n    return mylist\nresponse.write(\'\\r\\n<!DOCTYPE html>\\r\\n<html lang="en">\\r\\n    <!--<![endif]-->\\r\\n    <head>\\r\\n        <!-- Title -->\\r\\n        <title>\', escape=False)\nresponse.write(title)\nresponse.write(\' | Find Pet</title>\\r\\n        <!-- Meta -->\\r\\n        <meta http-equiv="content-type" content="text/html; charset=utf-8" />\\r\\n        <meta name="description" content="">\\r\\n        <meta name="author" content="">\\r\\n        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />\\r\\n        <!-- Favicon -->\\r\\n        <link href="favicon.ico" rel="shortcut icon">\\r\\n        <!-- Bootstrap Core CSS -->\\r\\n        <link rel="stylesheet" href="\', escape=False)\nresponse.write(URL(\'static\',\'bootstrap.css\'))\nresponse.write(\'" rel="stylesheet">\\r\\n        <!-- Template CSS -->\\r\\n        <link rel="stylesheet" href="\', escape=False)\nresponse.write(URL(\'static\',\'animate.css\'))\nresponse.write(\'" rel="stylesheet">\\r\\n        <link rel="stylesheet" href="\', escape=False)\nresponse.write(URL(\'static\',\'font-awesome.css\'))\nresponse.write(\'" rel="stylesheet">    \\r\\n        <link rel="stylesheet" href="\', escape=False)\nresponse.write(URL(\'static\',\'nexus.css\'))\nresponse.write(\'" rel="stylesheet">\\r\\n        <link rel="stylesheet" href="\', escape=False)\nresponse.write(URL(\'static\',\'responsive.css\'))\nresponse.write(\'" rel="stylesheet">\\r\\n        <link rel="stylesheet" href="\', escape=False)\nresponse.write(URL(\'static\',\'custom.css\'))\nresponse.write(\'" rel="stylesheet">\\r\\n        <!-- Google Fonts-->\\r\\n        <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet" type="text/css">\\r\\n    </head>\\r\\n    <body>\\r\\n        <div id="body-bg">\\r\\n            <!-- Header -->\\r\\n            <div id="header">\\r\\n                <div class="container">\\r\\n                    <div class="row">\\r\\n                        <!-- Logo -->\\r\\n                        <div class="logo">\\r\\n                            <a  href="\', escape=False)\nresponse.write(URL(\'default\', \'index\'))\nresponse.write(\'" title="">\\r\\n                                <img src="\', escape=False)\nresponse.write(URL(\'static/images\',\'ogo.png\'))\nresponse.write(\'" alt="Logo" />\\r\\n                            </a>\\r\\n                        </div>\\r\\n                        <!-- End Logo -->\\r\\n                    </div>\\r\\n                </div>\\r\\n            </div>\\r\\n            <!-- End Header -->\\r\\n            <!-- Top Menu -->\\r\\n            <div id="hornav" class="bottom-border-shadow">\\r\\n                <div class="container no-padding border-bottom">\\r\\n                    <div class="row">\\r\\n                        <div class="col-md-8 no-padding">\\r\\n                            <div class="visible-lg">\\r\\n                                <ul id="hornavmenu" class="nav navbar-nav" >\\r\\n                                    \', escape=False)\nresponse.write(menu_items2())\nresponse.write(\'\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\', escape=False)\nif auth.user:\n    response.write(\'\\r\\n\\t\\t\\t\\t\\t\\t\\t<li id="usermenu"><a href="\', escape=False)\n    response.write(URL(\'animal\', \'create\'))\n    response.write(\'">Advertise</a></li>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</ul>\\t                       \\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\', escape=False)\n    pass\nresponse.write(\'\\r\\n\\t\\r\\n                            </div>\\r\\n                        </div>\\r\\n                        <div class="visible-lg">\\r\\n\\t\\t\\t\\t\\t\\t\\r\\n                           <ul id="hornavmenu" class="nav navbar-nav "  style="float:right;padding-right: 10px;">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\r\\n\\t\\t\\t\\t\\t\\t\\t\', escape=False)\nif auth.user:\n    response.write(\'\\r\\n\\t\\t\\t\\t\\t\\t\\t\\r\\n\\t\\t\\t\\t\\t\\t\\t<li id="usermenu"> <a class="fa-blog active" href="\', escape=False)\n    response.write(URL(\'default\',\'profile\', args=auth.user.username))\n    response.write(\'">Hello \', escape=False)\n    response.write(auth.user.username)\n    response.write(\'   </a>\\r\\n\\t\\t\\t\\t\\t\\t\\t</li>\\r\\n\\t\\t\\t\\t\\t\\t\\t<li><a href="\', escape=False)\n    response.write(URL(\'default\', \'user\', args=\'logout\',\n    vars=dict(_next=request.env.path_info)))\n    response.write(\'">logout</a></li>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t<br>\\t\\r\\n\\t\\t\\t\\t\\t\\t\\t\\r\\n\\t\\t\\t\\t\\t\\t\\t\\r\\n\\t\\t\\t\\t\\t\\t\\t\\r\\n\\t\\t\\t\\t\\t\\t\\t\', escape=False)\nelse:\n    response.write(\'\\r\\n                               \\r\\n                                    <li ><a   href="\', escape=False)\n    response.write(URL(\'default\', \'user\',\n    args=\'login\',vars=dict(_next=request.env.path_info)))\n    response.write(\'">Login/Sign Up</a> </li>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</ul>\\r\\n                            \\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\', escape=False)\n    pass\nresponse.write(\'\\r\\n\\t\\t\\t\\t\\t\\t\\t \\r\\n\\t\\t\\t\\t\\t\\t</div>\\r\\n                    </div>\\r\\n                </div>\\r\\n            </div>\\r\\n            <!-- End Top Menu -->\\r\\n            <!-- === END HEADER === -->\\r\\n            <!-- === BEGIN CONTENT === -->\\r\\n\\t\\t\\t\', escape=False)\nif portfolio_enabled:\n    response.write(\'\\r\\n\\t\\t\\t<div  style="height:350px; width:700px; margin-left:325px; margin-top:20px;">\\r\\n            <div id="slideshow" class="bottom-border-shadow">\\r\\n                <div class="container no-padding background-white bottom-border">\\r\\n                    <div class="row">\\r\\n                        <!-- Carousel Slideshow -->\\r\\n                        <div id="carousel-example" class="carousel slide" data-ride="carousel">\\r\\n                            <!-- Carousel Indicators -->\\r\\n                            <ol class="carousel-indicators">\\r\\n                                <li data-target="#carousel-example" data-slide-to="0" class="active"></li>\\r\\n                                <li data-target="#carousel-example" data-slide-to="1"></li>\\r\\n                                <li data-target="#carousel-example" data-slide-to="2"></li>\\r\\n                            </ol>\\r\\n                            <div class="clearfix"></div>\\r\\n                            <!-- End Carousel Indicators -->\\r\\n                            <!-- Carousel Images -->\\r\\n                            <div class="carousel-inner">\\r\\n                                <div  class="item active">\\r\\n                                    <img src="\', escape=False)\n    response.write(URL(\'static/pics\', \'over1.jpg\'))\n    response.write(\'">\\r\\n                                </div>\\r\\n                                <div  class="item">\\r\\n                                    <img src="\', escape=False)\n    response.write(URL(\'static/pics\', \'over2.jpg\'))\n    response.write(\'">\\r\\n                                </div>\\r\\n                                <div  class="item">\\r\\n                                    <img src="\', escape=False)\n    response.write(URL(\'static/pics\', \'over3.jpg\'))\n    response.write(\'">\\r\\n                                </div>\\r\\n                                <div  class="item">\\r\\n                                    <img src="\', escape=False)\n    response.write(URL(\'static/pics\', \'over4.jpg\'))\n    response.write(\'">\\r\\n                                </div>\\r\\n                            </div>\\r\\n                            <!-- End Carousel Images -->\\r\\n                            <!-- Carousel Controls -->\\r\\n                            <a class="left carousel-control" href="#carousel-example" data-slide="prev">\\r\\n                                <span class="glyphicon glyphicon-chevron-left"></span>\\r\\n                            </a>\\r\\n                            <a class="right carousel-control" href="#carousel-example" data-slide="next">\\r\\n                                <span class="glyphicon glyphicon-chevron-right"></span>\\r\\n                            </a>\\r\\n                            <!-- End Carousel Controls -->\\r\\n                        </div>\\r\\n                        <!-- End Carousel Slideshow -->\\r\\n                    </div>\\r\\n                </div>\\r\\n            </div>\\r\\n\\t\\t\\t</div>\\r\\n\\t\\t\\t\', escape=False)\n    pass\nresponse.write(\'\\r\\n           \\r\\n            <div id="content" class="bottom-border-shadow" >\\r\\n                <div class="container background-white bottom-border">\\r\\n                    <div class="row margin-vert-30" style="min-height:250px">\\r\\n\\t\\t\\t\\t\\t              \', escape=False)\nresponse.write(\'\\n<style>\\n\\n\\n\\n.image{\\n\\tpadding-top:10px;\\n\\talign="left"\\n}\\n\\n.post-info{\\n\\tmargin:10px;\\n\\talign="left"\\n}\\n\\n\\n.table{\\n\\twidth:400px;\\n\\n}\\n#comments_body{\\nheight:50px;\\nwidth:500px;\\n}\\n\\n</style>\\n<div id="portfolio" class="bottom-border-shadow">\\n\\n<h2><b>\', escape=False)\nresponse.write(animal.name)\nresponse.write(\' from <a href="\', escape=False)\nresponse.write(URL(\'default\', \'city\', args=animal.city.id))\nresponse.write(\'">\', escape=False)\nresponse.write(animal.city.name)\nresponse.write(\'</a></b></h2>\\n \\n\\n<div class="col-md-6">\\n<a class="image"><img  src ="\', escape=False)\nresponse.write(URL(\'default\',\'download\', args=animal.image))\nresponse.write(\'"> </a>\\n<div class="post-info" >Posted by: \', escape=False)\nresponse.write(author.username)\nresponse.write(\' on \', escape=False)\nresponse.write(animal.post_date)\nresponse.write(\'\\n</div>\\n\\n</div>\\n<div >\\n\\n\\t<table class="table">\\n\\t<tr  > <td><b>Kind:</td> \', escape=False)\nfor kind in animal.kind:\n    response.write(\'<td>\', escape=False)\n    response.write(kind.strip(\'[]\'))\n    response.write(\' </td> \', escape=False)\n    pass\nresponse.write(\'</tr>\\n\\t<tr> <td><b> Age:</td> <td>\', escape=False)\nresponse.write(animal.age)\nresponse.write(\' </td> </tr>\\n\\t<tr> <td><b>Gender:</td> \', escape=False)\nfor gender in animal.gender:\n    response.write(\'<td>\', escape=False)\n    response.write(gender.strip(\'[]\'))\n    response.write(\' </td> \', escape=False)\n    pass\nresponse.write(\'</tr>\\n\\t<tr> <td> <b>Description:</td> <td>\', escape=False)\nresponse.write(animal.description)\nresponse.write(\'  </td> </tr>\\n\\t<tr> <td><b>Vaccination:</td> \', escape=False)\nfor vaccine in animal.vaccine:\n    response.write(\'<td> \', escape=False)\n    response.write(vaccine.strip(\'[]\'))\n    response.write(\'</td> \', escape=False)\n    pass\nresponse.write(\'</tr>\\n\\t<tr> <td><b>Owner:</td> <td>\\n\\t<a href="\', escape=False)\nresponse.write(URL(\'default\', \'profile\', args=animal.posted_by.username))\nresponse.write(\'"><b>\', escape=False)\nresponse.write(animal.posted_by.username)\nresponse.write(\' </b></a> \\n\\t</td> </tr>\\t\\n\\t</table>\\n\\t\', escape=False)\nif auth.user and ( author.id == auth.user.id or\nauth.has_membership(role="editor")):\n    response.write(\'\\n<a class=""href="\', escape=False)\n    response.write(URL(\'animal\',\'edit\', args=animal.id))\n    response.write(\'">Edit this advertisement</a>\\n\\t\', escape=False)\n    pass\nresponse.write(\'\\n\\t</div>\\n<div class="col-md-12">\\n <div class="carousel slide testimonials" id="testimonials1">\\n\', escape=False)\nif len(comments):\n    response.write(\'\\n<div class="carousel-inner">\\n<div class="item active">\\n\', escape=False)\n    for comment in comments:\n        response.write(\'\\n <div class="col-md-12">\\n    <p>\\n     \', escape=False)\n        response.write(comment.body)\n        response.write(\'\\n    </p>\\n <div class="testimonial-info">\\n    \\n         <span class="testimonial-author">\\n            \', escape=False)\n        response.write(comment.author)\n        response.write(\'\\n             <em>\\n                \', escape=False)\n        response.write(comment.author.image)\n        response.write(\'   \\n             </em>\\n         </span>\\n</div>\\n</div>\\n\', escape=False)\n        pass\n    response.write(\'\\n\', escape=False)\n    if comment.author==auth.user:\n        response.write(\' \\n <a >Edit Comment:</a>\\n   \', escape=False)\n        response.write(form2)\n        response.write(\'\\n \', escape=False)\n        pass\n    response.write(\'\\n</div>\\n\\n\', escape=False)\nelse:\n    response.write(\'\\n\\n<h3>No comments posted yet</h1>\\n\\n\', escape=False)\n    pass\nresponse.write(\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\n\', escape=False)\nif auth.is_logged_in():\n    response.write(\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\nPost a comment if you want:\\n\', escape=False)\n    response.write(form)\n    response.write(\'\\n \\n\\n\', escape=False)\nelse:\n    response.write(\'\\nPlease <a href="\', escape=False)\n    response.write(URL(\'default\', \'user\', args=\'login\',vars=dict(_next=request.env.path_info)))\n    response.write(\'">login</a> \\nor <a href="\', escape=False)\n    response.write(URL(\'default\', \'user\', args=\'register\',vars=dict(_next=request.env.path_info)))\n    response.write(\'">sign up</a> to comment...\\n\', escape=False)\n    pass\nresponse.write(\'\\n\\n</div>\\n</div>\\n</div>\\n</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\n<!-- <div class="col-md-8"> -->\\n<!-- \', escape=False)\nif len(comments):\n    response.write(\' -->\\n  <!-- <h2>Comments</h2><br /><p> -->\\n  <!-- \', escape=False)\n    for comment in comments:\n        response.write(\' -->\\n    <!-- <p>\', escape=False)\n        response.write(comment.author)\n        response.write(\' says <i>\', escape=False)\n        response.write(comment.body)\n        response.write(\'</i></p> -->\\n  <!-- \', escape=False)\n        pass\n    response.write(\'</p> -->\\n<!-- \', escape=False)\nelse:\n    response.write(\' -->\\n  <!-- <h1>No comments posted yet</h1> -->\\n<!-- \', escape=False)\n    pass\nresponse.write(\' -->\\n\\n<!-- \', escape=False)\nif auth.is_logged_in():\n    response.write(\'\\n<p>Post a comment if you want:<p/>\\n\', escape=False)\n    response.write(form)\n    response.write(\'\\n\', escape=False)\nelse:\n    response.write(\'\\nPlease <a href="\', escape=False)\n    response.write(URL(\'default\', \'user\', args=\'login\',vars=dict(_next=request.env.path_info)))\n    response.write(\'">login</a> \\nor <a href="\', escape=False)\n    response.write(URL(\'default\', \'user\', args=\'register\',vars=dict(_next=request.env.path_info)))\n    response.write(\'">sign up</a> to comment...\\n\', escape=False)\n    pass\nresponse.write(\'\\n</div>\\n</div> --> \\n\\n\', escape=False)\nresponse.write(\'\\r\\n                        </div>\\r\\n                </div>\\r\\n            </div>\\r\\n\\t\\t\\t\\r\\n\\t\\t\\t<div>  \\r\\n                </div>\', escape=False)\nresponse.write(\'      <div id="base">\\r\\n                <div class="container bottom-border padding-vert-20">\\r\\n                    <div class="row">\\r\\n                        <!-- Disclaimer -->\\r\\n                        <div class="col-md-6">\\r\\n                            <h3 class="class margin-bottom-5" ><a href="\', escape=False)\nresponse.write(URL(\'default\', \'about\'))\nresponse.write(\'">About Us </a></h3>\\r\\n                            <p> This site is designed to find home for unclaimed animals.</p>\\r\\n                        </div>\\r\\n                        <!-- End Disclaimer -->\\r\\n                        <!-- Contact Details -->\\r\\n                        <div class="col-md-6 margin-bottom-5">\\r\\n                            <h3 class="margin-bottom-5" class="pull-right"> <a href="\', escape=False)\nresponse.write(URL(\'default\', \'contact\'))\nresponse.write(\'">Contact Details</a> </h3>\\r\\n                            \\r\\n                                Send us an e-mail. </br>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\tf.duygurende@gmail.com</br>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\thayriye.yasak@gmail.com\\r\\n                            \\r\\n                            \\r\\n                        </div>\\r\\n                        <!-- End Contact Details -->\\r\\n                        \\r\\n                    </div>\\r\\n                </div>\\r\\n            </div><div id="footer" class="background-grey">\\r\\n                <div class="container">\\r\\n                    <div class="row">\\r\\n                        <!-- Footer Menu -->\\r\\n                        <div id="footermenu" class="col-md-6">\\r\\n                             <div id="copyright"  >\\r\\n                            <p class="pull-right"> 2016 FindPet</p>\\r\\n                        </div>\\r\\n                        </div>\\r\\n                        <!-- End Footer Menu -->\\r\\n                        <!-- Copyright -->\\r\\n                       \\r\\n                        <!-- End Copyright -->\\r\\n                    </div>\\r\\n                </div>\\r\\n            </div>\', escape=False)\nresponse.write(\'</div>\\r\\n\\t\\t\\t<script type="text/javascript" src="\', escape=False)\nresponse.write(URL(\'static\',\'jquery.min.js\'))\nresponse.write(\'" type="text/javascript"></script>    \\r\\n            <script type="text/javascript" src="\', escape=False)\nresponse.write(URL(\'static\',\'bootstrap.min.js\'))\nresponse.write(\'" type="text/javascript"></script>\\r\\n            <script type="text/javascript" src="\', escape=False)\nresponse.write(URL(\'static\',\'scripts.js\'))\nresponse.write(\'"></script>\\r\\n            <!-- Isotope - Portfolio Sorting -->\\r\\n            <script type="text/javascript" src="\', escape=False)\nresponse.write(URL(\'static\',\'jquery.isotope.js\'))\nresponse.write(\'" type="text/javascript"></script>\\r\\n            <!-- Mobile Menu - Slicknav -->\\r\\n            <script type="text/javascript" src="\', escape=False)\nresponse.write(URL(\'static\',\'jquery.slicknav.js\'))\nresponse.write(\'" type="text/javascript"></script>\\r\\n            <!-- Animate on Scroll-->\\r\\n            <script type="text/javascript" src="\', escape=False)\nresponse.write(URL(\'static\',\'jquery.visible.js\'))\nresponse.write(\'" charset="utf-8"></script>\\r\\n            <!-- Sticky Div -->\\r\\n            <script type="text/javascript" src="\', escape=False)\nresponse.write(URL(\'static\',\'jquery.sticky.js\'))\nresponse.write(\'" charset="utf-8"></script>\\r\\n            <!-- Slimbox2-->\\r\\n            <script type="text/javascript" src=" \', escape=False)\nresponse.write(URL(\'static\',\'slimbox2.js\'))\nresponse.write(\'" charset="utf-8"></script>\\r\\n            <!-- Modernizr -->\\r\\n            <script src="\', escape=False)\nresponse.write(URL(\'static\',\'modernizr.custom.js\'))\nresponse.write(\'" type="text/javascript"></script>\\r\\n            <!-- End JS -->\\r\\n    </body>\\r\\n</html>\', escape=False)'
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__hash__'
+p12
+S"<method-wrapper '__hash__' of exceptions.AttributeError object>"
+p13
+sS'__setattr__'
+p14
+S"<method-wrapper '__setattr__' of exceptions.AttributeError object>"
+p15
+sS'__reduce_ex__'
+p16
+S'<built-in method __reduce_ex__ of exceptions.AttributeError object>'
+p17
+sS'__getslice__'
+p18
+S"<method-wrapper '__getslice__' of exceptions.AttributeError object>"
+p19
+sS'__getitem__'
+p20
+S"<method-wrapper '__getitem__' of exceptions.AttributeError object>"
+p21
+sS'__setstate__'
+p22
+S'<built-in method __setstate__ of exceptions.AttributeError object>'
+p23
+sS'__reduce__'
+p24
+S'<built-in method __reduce__ of exceptions.AttributeError object>'
+p25
+sS'__str__'
+p26
+S"<method-wrapper '__str__' of exceptions.AttributeError object>"
+p27
+sS'__format__'
+p28
+S'<built-in method __format__ of exceptions.AttributeError object>'
+p29
+sS'__getattribute__'
+p30
+S"<method-wrapper '__getattribute__' of exceptions.AttributeError object>"
+p31
+sS'__class__'
+p32
+S"<type 'exceptions.AttributeError'>"
+p33
+sS'__unicode__'
+p34
+S'<built-in method __unicode__ of exceptions.AttributeError object>'
+p35
+sS'__delattr__'
+p36
+S"<method-wrapper '__delattr__' of exceptions.AttributeError object>"
+p37
+sS'__subclasshook__'
+p38
+S'<built-in method __subclasshook__ of type object>'
+p39
+sS'__repr__'
+p40
+S"<method-wrapper '__repr__' of exceptions.AttributeError object>"
+p41
+sS'args'
+p42
+S'("\'str\' object has no attribute \'image\'",)'
+p43
+sS'__dict__'
+p44
+S'{}'
+p45
+sS'__sizeof__'
+p46
+S'<built-in method __sizeof__ of exceptions.AttributeError object>'
+p47
+sS'__doc__'
+p48
+S"'Attribute not found.'"
+p49
+sS'__init__'
+p50
+S"<method-wrapper '__init__' of exceptions.AttributeError object>"
+p51
+sS'__new__'
+p52
+S'<built-in method __new__ of type object>'
+p53
+ssS'evalue'
+p54
+S"'str' object has no attribute 'image'"
+p55
+sS'request'
+p56
+cgluon.html
+XML_unpickle
+p57
+(S's<^\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">ajax</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">application</td><td style="vertical-align:top;">:</td><td><div>FindPetDeneme</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">args</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cid</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">controller</td><td style="vertical-align:top;">:</td><td><div>animal</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_admin</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-a65f3cfb-1f72-42cb-96ca-57d7d138cc8a<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_findpetdeneme</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-b7a14aa4-03a9-43ac-aca8-ee9a672cb301<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_welcome</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-4e7d49f7-aa62-4fca-be40-39f4301b9935<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">env</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_ENCODING</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate, sdch, br</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_LANGUAGE</td><td style="vertical-align:top;">:</td><td><div>tr-TR,tr;q=0.8,en-US;q=0.6,en;q=0.4</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONNECTION</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_COOKIE</td><td style="vertical-align:top;">:</td><td><div>session_id_welcome=127.0.0.1-4e7d49f7-aa62-4fca-be40-39f4301b9935; session_id_admin=127.0.0.1-a65f3cfb-1f72-42cb-96ca-57d7d138cc8a; session_id_findpetdeneme=127.0.0.1-b7a14aa4-03a9-43ac-aca8-ee9a672cb301</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_HOST</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_REFERER</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/FindPetDeneme/default/animals</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_UPGRADE_INSECURE_REQUESTS</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_USER_AGENT</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PATH_INFO</td><td style="vertical-align:top;">:</td><td><div>/FindPetDeneme/animal/view/1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">QUERY_STRING</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_ADDR</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_PORT</td><td style="vertical-align:top;">:</td><td><div>51050</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_METHOD</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCRIPT_NAME</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_NAME</td><td style="vertical-align:top;">:</td><td><div>dell-Bilgisayar</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PORT</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PROTOCOL</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_SOFTWARE</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;C:\\\\Users\\\\dell\\\\Desktop\\\\webDev2016\\\\web2py\\\\applications\\\\admin\\\\&#x27;, &#x27;C:\\\\Users\\\\dell\\\\Desktop\\\\webDev2016\\\\web2py\\\\applications\\\\welcome\\\\&#x27;, &#x27;C:\\\\Users\\\\dell\\\\Desktop\\\\webDev2016\\\\web2py\\\\applications\\\\FindPetDeneme\\\\&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\dell\\Desktop\\webDev2016\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x3118eb8: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;dell-Bilgisayar&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;port&#x27;: 8000, &#x27;print_errors&#x27;: False, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;C:\\\\Users\\\\dell\\\\Desktop\\\\webDev2016\\\\web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;gae&#x27;: None, &#x27;password&#x27;: &#x27;******&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\dell\\Desktop\\webDev2016\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_encoding</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate, sdch, br</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_language</td><td style="vertical-align:top;">:</td><td><div>tr-TR,tr;q=0.8,en-US;q=0.6,en;q=0.4</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_connection</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cookie</td><td style="vertical-align:top;">:</td><td><div>session_id_welcome=127.0.0.1-4e7d49f7-aa62-4fca-be40-39f4301b9935; session_id_admin=127.0.0.1-a65f3cfb-1f72-42cb-96ca-57d7d138cc8a; session_id_findpetdeneme=127.0.0.1-b7a14aa4-03a9-43ac-aca8-ee9a672cb301</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_host</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_referer</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/FindPetDeneme/default/animals</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_upgrade_insecure_requests</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_user_agent</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>fe80::2558:78c4:1e17:4a86%14</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>dell-Bilgisayar</div></td></tr><tr><td><div>fe80::c046:15c3:bc7b:f5b0%16</div></td></tr><tr><td><div>192.168.252.2</div></td></tr><tr><td><div>127.0.0.1</div></td></tr><tr><td><div>192.168.56.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path_info</td><td style="vertical-align:top;">:</td><td><div>/FindPetDeneme/animal/view/1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">query_string</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_addr</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_port</td><td style="vertical-align:top;">:</td><td><div>51050</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_method</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_uri</td><td style="vertical-align:top;">:</td><td><div>/FindPetDeneme/animal/view/1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">script_name</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_name</td><td style="vertical-align:top;">:</td><td><div>dell-Bilgisayar</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_port</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_protocol</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_software</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_path</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\dell\\Desktop\\webDev2016\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.14.6-stable+timestamp.2016.05.10.00.21.47</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x0045D0D0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x03161068&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x07F73C70&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x0045D0D0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x03161068&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x07F73C70&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">extension</td><td style="vertical-align:top;">:</td><td><div>html</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">folder</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\dell\\Desktop\\webDev2016\\web2py\\applications\\FindPetDeneme\\</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">function</td><td style="vertical-align:top;">:</td><td><div>view</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">global_settings</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;C:\\\\Users\\\\dell\\\\Desktop\\\\webDev2016\\\\web2py\\\\applications\\\\admin\\\\&#x27;, &#x27;C:\\\\Users\\\\dell\\\\Desktop\\\\webDev2016\\\\web2py\\\\applications\\\\welcome\\\\&#x27;, &#x27;C:\\\\Users\\\\dell\\\\Desktop\\\\webDev2016\\\\web2py\\\\applications\\\\FindPetDeneme\\\\&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\dell\\Desktop\\webDev2016\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x3118eb8: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;dell-Bilgisayar&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;port&#x27;: 8000, &#x27;print_errors&#x27;: False, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;C:\\\\Users\\\\dell\\\\Desktop\\\\webDev2016\\\\web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;gae&#x27;: None, &#x27;password&#x27;: &#x27;******&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\dell\\Desktop\\webDev2016\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>fe80::2558:78c4:1e17:4a86%14</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>dell-Bilgisayar</div></td></tr><tr><td><div>fe80::c046:15c3:bc7b:f5b0%16</div></td></tr><tr><td><div>192.168.252.2</div></td></tr><tr><td><div>127.0.0.1</div></td></tr><tr><td><div>192.168.56.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.14.6-stable+timestamp.2016.05.10.00.21.47</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_https</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_local</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_restful</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_scheduler</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_shell</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">now</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2017, 1, 9, 13, 13, 32, 964000)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_args</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_extension</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">url</td><td style="vertical-align:top;">:</td><td><div>/FindPetDeneme/animal/view/1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">utcnow</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2017, 1, 9, 10, 13, 32, 964000)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi</td><td style="vertical-align:top;">:</td><td><div>&lt;gluon.main.LazyWSGI object at 0x03BF82D0&gt;</div></td></tr></table></div>'
+tRp58
+sS'frames'
+p59
+(lp60
+(dp61
+S'file'
+p62
+S'C:\\Users\\dell\\Desktop\\webDev2016\\web2py\\gluon\\restricted.py'
+p63
+sS'dump'
+p64
+(dp65
+S'environment'
+p66
+S"{'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'ASSIGNJS': <function ASSIGNJS>, 'AppConfig': <function AppConfig>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, ...}"
+p67
+sS'ccode'
+p68
+S'<code object <module> at 07EEA608, file "C:\\User...ns\\FindPetDeneme\\views\\animal/view.html", line 1>'
+p69
+ssS'lnum'
+p70
+I227
+sS'lines'
+p71
+(dp72
+I224
+S'            ccode = code'
+p73
+sI225
+S'        else:'
+p74
+sI226
+S'            ccode = compile2(code, layer)'
+p75
+sI227
+S'        exec ccode in environment'
+p76
+sI228
+S'    except HTTP:'
+p77
+sI229
+S'        raise'
+p78
+sI230
+S'    except RestrictedError:'
+p79
+sI231
+S'        # do not encapsulate (obfuscate) the original RestrictedError'
+p80
+sI222
+S'    try:'
+p81
+sI223
+S'        if isinstance(code, types.CodeType):'
+p82
+ssS'call'
+p83
+S'(code=\'portfolio_enabled=False\\ntitle = "Animal - View"\\n... JS -->\\\\r\\\\n    </body>\\\\r\\\\n</html>\\\', escape=False)\', environment={\'A\': <class \'gluon.html.A\'>, \'ANY_OF\': <class \'gluon.validators.ANY_OF\'>, \'ASSIGNJS\': <function ASSIGNJS>, \'AppConfig\': <function AppConfig>, \'Auth\': <class \'gluon.tools.Auth\'>, \'B\': <class \'gluon.html.B\'>, \'BEAUTIFY\': <class \'gluon.html.BEAUTIFY\'>, \'BODY\': <class \'gluon.html.BODY\'>, \'BR\': <class \'gluon.html.BR\'>, \'BUTTON\': <class \'gluon.html.BUTTON\'>, ...}, layer=r\'C:\\Users\\dell\\Desktop\\webDev2016\\web2py\\applications\\FindPetDeneme\\views\\animal/view.html\')'
+p84
+sS'func'
+p85
+S'restricted'
+p86
+sa(dp87
+g62
+S'C:\\Users\\dell\\Desktop\\webDev2016\\web2py\\applications\\FindPetDeneme\\views\\animal\\view.html'
+p88
+sg64
+(dp89
+sg70
+I135
+sg71
+(dp90
+I128
+S'    response.write(\'\\n<div class="carousel-inner">\\n<div class="item active">\\n\', escape=False)'
+p91
+sI129
+S'    for comment in comments:'
+p92
+sI130
+S'        response.write(\'\\n <div class="col-md-12">\\n    <p>\\n     \', escape=False)'
+p93
+sI131
+S'        response.write(comment.body)'
+p94
+sI132
+S'        response.write(\'\\n    </p>\\n <div class="testimonial-info">\\n    \\n         <span class="testimonial-author">\\n            \', escape=False)'
+p95
+sI133
+S'        response.write(comment.author)'
+p96
+sI134
+S"        response.write('\\n             <em>\\n                ', escape=False)"
+p97
+sI135
+S'        response.write(comment.author.image)'
+p98
+sI136
+S"        response.write('   \\n             </em>\\n         </span>\\n</div>\\n</div>\\n', escape=False)"
+p99
+sI137
+S'        pass'
+p100
+sI138
+S"    response.write('\\n', escape=False)"
+p101
+sI139
+S'    if comment.author==auth.user:'
+p102
+sI140
+S"        response.write(' \\n <a >Edit Comment:</a>\\n   ', escape=False)"
+p103
+sI141
+S'        response.write(form2)'
+p104
+sI142
+S"        response.write('\\n ', escape=False)"
+p105
+sI143
+S'        pass'
+p106
+sI144
+S"    response.write('\\n</div>\\n\\n', escape=False)"
+p107
+sI145
+S'else:'
+p108
+sI126
+S'response.write(\'\\n\\t</div>\\n<div class="col-md-12">\\n <div class="carousel slide testimonials" id="testimonials1">\\n\', escape=False)'
+p109
+sI127
+S'if len(comments):'
+p110
+ssg83
+S'()'
+p111
+sg85
+S'<module>'
+p112
+sasS'pyver'
+p113
+S'Python 2.7.9: C:\\Users\\dell\\Desktop\\webDev2016\\web2py\\web2py.exe (prefix: )'
+p114
+sS'session'
+p115
+g57
+(S's\xe2\x0c\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">auth</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">expiration</td><td style="vertical-align:top;">:</td><td><div>3600</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">hmac_key</td><td style="vertical-align:top;">:</td><td><div>cce02aa6-dd62-4f47-9bf1-689d2c99ffed</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_visit</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2017, 1, 9, 13, 13, 30, 948000)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remember_me</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">age</td><td style="vertical-align:top;">:</td><td><div>23L</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">bio</td><td style="vertical-align:top;">:</td><td><div>economics and administrative sciences</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">city</td><td style="vertical-align:top;">:</td><td><div>62L</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">email</td><td style="vertical-align:top;">:</td><td><div>hayriye.ysk@gmail.com</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">first_name</td><td style="vertical-align:top;">:</td><td><div>Yonca</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gender</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>Female</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">id</td><td style="vertical-align:top;">:</td><td><div>7L</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">image</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_name</td><td style="vertical-align:top;">:</td><td><div>K</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">registration_id</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">registration_key</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">reset_password_key</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">username</td><td style="vertical-align:top;">:</td><td><div>user1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user_groups</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_orderby</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_query</td><td style="vertical-align:top;">:</td><td><div>db.auth_permission.id&gt;0</div></td></tr></table></div>'
+tRp116
+sS'etype'
+p117
+S"<type 'exceptions.AttributeError'>"
+p118
+sS'date'
+p119
+S'Mon Jan 09 13:13:33 2017'
+p120
+sS'response'
+p121
+g57
+(S's9@\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">body</td><td style="vertical-align:top;">:</td><td><div>&lt;cStringIO.StringO object at 0x07D509E0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_findpetdeneme</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-b7a14aa4-03a9-43ac-aca8-ee9a672cb301<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">delimiters</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>{{</div></td></tr><tr><td><div>}}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">files</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">form_label_separator</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">formstyle</td><td style="vertical-align:top;">:</td><td><div>bootstrap3_inline</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generic_patterns</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>*</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">google_analytics_id</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">headers</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">X-Powered-By</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">logo</td><td style="vertical-align:top;">:</td><td><div><a class="navbar-brand" href="http://www.web2py.com/" id="web2py-logo"><b>web<span>2</span>py</b>&trade;&nbsp;</a></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">menu</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div><table><tr><td><div>Anasayfa</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/FindPetDeneme/default/index</div></td></tr><tr><td><div><table></table></div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Sitelerim</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/site</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Bu Uygulama</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>#</div></td></tr><tr><td><div><table><tr><td><div><table><tr><td><div>Design</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/design/FindPetDeneme</div></td></tr></table></div></td></tr><tr><td><div><li class="divider"></li></div></td></tr><tr><td><div><table><tr><td><div>Denet\xc3\xa7i</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/edit/FindPetDeneme/controllers/animal.py</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>G\xc3\xb6r\xc3\xbcn\xc3\xbcm</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/edit/FindPetDeneme/views/animal/view.html</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>DB Modeli</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/edit/FindPetDeneme/models/db.py</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Model Men\xc3\xbc</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/edit/FindPetDeneme/models/menu.py</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Config.ini</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/edit/FindPetDeneme/private/appconfig.ini</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>\xc5\x9eablon</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/edit/FindPetDeneme/views/layout.html</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Stil \xc5\x9eablonu</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/edit/FindPetDeneme/static/css/web2py-bootstrap3.css</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Veritaban\xc4\xb1</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/FindPetDeneme/appadmin/index</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Hatalar</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/errors/FindPetDeneme</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Hakk\xc4\xb1nda</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/about/FindPetDeneme</div></td></tr></table></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>web2py.com</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>#</div></td></tr><tr><td><div><table><tr><td><div><table><tr><td><div>\xc4\xb0ndir</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/examples/default/download</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Destek</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/examples/default/support</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Tan\xc4\xb1t\xc4\xb1m</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://web2py.com/demo_admin</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>H\xc4\xb1zl\xc4\xb1 \xc3\x96rnekler</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://web2py.com/examples/default/examples</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>SSS</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://web2py.com/AlterEgo</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Videolar</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/examples/default/videos/</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>\xc3\x9ccretsiz uygulamalar</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://web2py.com/appliances</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Eklentiler</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://web2py.com/plugins</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Tarifeler</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://web2pyslices.com/</div></td></tr></table></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Kitap</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>#</div></td></tr><tr><td><div><table><tr><td><div><table><tr><td><div>Online book</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book</div></td></tr></table></div></td></tr><tr><td><div><li class="divider"></li></div></td></tr><tr><td><div><table><tr><td><div>\xc3\x96nz\xc3\xb6s</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book/default/chapter/00</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Giri\xc5\x9f</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book/default/chapter/01</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Python</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book/default/chapter/02</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>G\xc3\xb6z gezdir</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book/default/chapter/03</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>\xc3\x87ekirdek</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book/default/chapter/04</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>G\xc3\xb6r\xc3\xbcn\xc3\xbcmler</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book/default/chapter/05</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Veritaban\xc4\xb1</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book/default/chapter/06</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Bi\xc3\xa7imler ve Do\xc4\x9frulay\xc4\xb1c\xc4\xb1lar</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book/default/chapter/07</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>E-posta ve k\xc4\xb1sa mesaj (SMS)</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book/default/chapter/08</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Eri\xc5\x9fim Denetimi</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book/default/chapter/09</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Hizmetler</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book/default/chapter/10</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Ajax Tarifleri</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book/default/chapter/11</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Bile\xc5\x9fenler ve Eklentiler</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book/default/chapter/12</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Yay\xc4\xb1nlama tarifleri</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book/default/chapter/13</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Di\xc4\x9fer Tarifler</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book/default/chapter/14</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Helping web2py</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book/default/chapter/15</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Buy web2py\'s book</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://stores.lulu.com/web2py</div></td></tr></table></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Topluluk</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>None</div></td></tr><tr><td><div><table><tr><td><div><table><tr><td><div>Gruplar</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/examples/default/usergroups</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Twitter</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://twitter.com/web2py</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Canl\xc4\xb1 Sohbet</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://webchat.freenode.net/?channels=web2py</div></td></tr></table></div></td></tr></table></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">meta</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">author</td><td style="vertical-align:top;">:</td><td><div>Your Name &lt;you@example.com&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">description</td><td style="vertical-align:top;">:</td><td><div>a cool new app</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generator</td><td style="vertical-align:top;">:</td><td><div>Web2py Web Framework</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">keywords</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>web2py</div></td></tr><tr><td><div>python</div></td></tr><tr><td><div>framework</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">models_to_run</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>^\\w+\\.py$</div></td></tr><tr><td><div>^animal/\\w+\\.py$</div></td></tr><tr><td><div>^animal/view/\\w+\\.py$</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">postprocessing</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_compression_level</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_expires</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_data_name</td><td style="vertical-align:top;">:</td><td><div>session_data_findpetdeneme</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_file</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;C:\\\\Users\\\\dell\\\\Desktop\\\\webDev2016\\\\web2py\\\\applications\\\\FindPetDeneme\\\\sessions\\\\185\\\\1bb\\\\127.0.0.1-b7a14aa4-03a9-43ac-aca8-ee9a672cb301&#x27;, mode &#x27;rb+&#x27; at 0x03E5BA70&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_filename</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\dell\\Desktop\\webDev2016\\web2py\\applications\\FindPetDeneme\\sessions\\127.0.0.1-b7a14aa4-03a9-43ac-aca8-ee9a672cb301</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_hash</td><td style="vertical-align:top;">:</td><td><div>37e84919365a50d56a2ad773b0163272</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-b7a14aa4-03a9-43ac-aca8-ee9a672cb301</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_name</td><td style="vertical-align:top;">:</td><td><div>session_id_findpetdeneme</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_locked</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_masterapp</td><td style="vertical-align:top;">:</td><td><div>FindPetDeneme</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_new</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_storage_type</td><td style="vertical-align:top;">:</td><td><div>file</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">status</td><td style="vertical-align:top;">:</td><td><div>200</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">subtitle</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">title</td><td style="vertical-align:top;">:</td><td><div>Findpetdeneme</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">view</td><td style="vertical-align:top;">:</td><td><div>animal/view.html</div></td></tr></table></div>'
+tRp122
+sS'locals'
+p123
+(dp124
+S'Service'
+p125
+S"<class 'gluon.tools.Service'>"
+p126
+sS'IFRAME'
+p127
+S"<class 'gluon.html.IFRAME'>"
+p128
+sS'OBJECT'
+p129
+S"<class 'gluon.html.OBJECT'>"
+p130
+sS'SQLDB'
+p131
+S"<class 'pydal.base.DAL'>"
+p132
+sg115
+S"<Storage {'last_query': 'db.auth_permission.id>0...gin]': ['cc24dd7a-1edb-418f-a278-bef1bab26e8e']}>"
+p133
+sS'LINK'
+p134
+S"<class 'gluon.html.LINK'>"
+p135
+sS'comments'
+p136
+S'<Rows (7)>'
+p137
+sS'BR'
+p138
+S"<class 'gluon.html.BR'>"
+p139
+sS'local_import'
+p140
+S'<function <lambda>>'
+p141
+sS'OPTGROUP'
+p142
+S"<class 'gluon.html.OPTGROUP'>"
+p143
+sS'__package__'
+p144
+S'None'
+p145
+sS'PRE'
+p146
+S"<class 'gluon.html.PRE'>"
+p147
+sS'IS_INT_IN_RANGE'
+p148
+S"<class 'gluon.validators.IS_INT_IN_RANGE'>"
+p149
+sS'IS_LOWER'
+p150
+S"<class 'gluon.validators.IS_LOWER'>"
+p151
+sS'IS_STRONG'
+p152
+S"<class 'gluon.validators.IS_STRONG'>"
+p153
+sS'cache'
+p154
+S'<gluon.cache.Cache object>'
+p155
+sS'IS_IN_DB'
+p156
+S"<class 'gluon.validators.IS_IN_DB'>"
+p157
+sS'TAG'
+p158
+S'<gluon.html.__TAG__ object>'
+p159
+sS'SQLField'
+p160
+S"<class 'pydal.objects.Field'>"
+p161
+sS'mail'
+p162
+S'<gluon.tools.Mail object>'
+p163
+sS'BODY'
+p164
+S"<class 'gluon.html.BODY'>"
+p165
+sS'IS_DATE_IN_RANGE'
+p166
+S"<class 'gluon.validators.IS_DATE_IN_RANGE'>"
+p167
+sS'animal'
+p168
+S"<Row {'city': 34L, 'kind': ['Dog'], 'name': 'Rak...: 1L, 'vaccine': ['Yes'], 'description': 'Dogo'}>"
+p169
+sS'URL'
+p170
+S'<function URL>'
+p171
+sS'__file__'
+p172
+S"r'C:\\Users\\dell\\Desktop\\webDev2016\\web2py\\applications\\FindPetDeneme\\views\\animal/view.html'"
+p173
+sS'db'
+p174
+S'<DAL uri="sqlite://storage.sqlite">'
+p175
+sS'auth'
+p176
+S'<gluon.tools.Auth object>'
+p177
+sS'P'
+S"<class 'gluon.html.P'>"
+p178
+sS'animal_kinds'
+p179
+S"['Dog', 'Cat', 'Reptile', 'Bird', 'Other']"
+p180
+sS'TFOOT'
+p181
+S"<class 'gluon.html.TFOOT'>"
+p182
+sS'XHTML'
+p183
+S"<class 'gluon.html.XHTML'>"
+p184
+sS'ON'
+p185
+S'True'
+p186
+sS'OL'
+p187
+S"<class 'gluon.html.OL'>"
+p188
+sS'TEXTAREA'
+p189
+S"<class 'gluon.html.TEXTAREA'>"
+p190
+sS'MENU'
+p191
+S"<class 'gluon.html.MENU'>"
+p192
+sS'gender'
+p193
+S"'Male'"
+p194
+sS'IS_IMAGE'
+p195
+S"<class 'gluon.validators.IS_IMAGE'>"
+p196
+sS'EM'
+p197
+S"<class 'gluon.html.EM'>"
+p198
+sS'CODE'
+p199
+S"<class 'gluon.html.CODE'>"
+p200
+sS'HTTP'
+p201
+S"<class 'gluon.http.HTTP'>"
+p202
+sS'HR'
+p203
+S"<class 'gluon.html.HR'>"
+p204
+sS'IS_DATETIME'
+p205
+S"<class 'gluon.validators.IS_DATETIME'>"
+p206
+sS'STYLE'
+p207
+S"<class 'gluon.html.STYLE'>"
+p208
+sS'LABEL'
+p209
+S"<class 'gluon.html.LABEL'>"
+p210
+sS'CLEANUP'
+p211
+S"<class 'gluon.validators.CLEANUP'>"
+p212
+sS'plugins'
+p213
+S'<gluon.tools.PluginManager object>'
+p214
+sS'SELECT'
+p215
+S"<class 'gluon.html.SELECT'>"
+p216
+sS'CENTER'
+p217
+S"<class 'gluon.html.CENTER'>"
+p218
+sS'Crud'
+p219
+S"<class 'gluon.tools.Crud'>"
+p220
+sS'Auth'
+p221
+S"<class 'gluon.tools.Auth'>"
+p222
+sS'DEVELOPMENT_MENU'
+p223
+g186
+sS'__builtins__'
+p224
+S"{'ArithmeticError': <type 'exceptions.ArithmeticError'>, 'AssertionError': <type 'exceptions.AssertionError'>, 'AttributeError': <type 'exceptions.AttributeError'>, 'BaseException': <type 'exceptions.BaseException'>, 'BufferError': <type 'exceptions.BufferError'>, 'BytesWarning': <type 'exceptions.BytesWarning'>, 'DeprecationWarning': <type 'exceptions.DeprecationWarning'>, 'EOFError': <type 'exceptions.EOFError'>, 'Ellipsis': Ellipsis, 'EnvironmentError': <type 'exceptions.EnvironmentError'>, ...}"
+p225
+sS'HTML'
+p226
+S"<class 'gluon.html.HTML'>"
+p227
+sS'SQLFORM'
+p228
+S"<class 'gluon.sqlhtml.SQLFORM'>"
+p229
+sS'LOAD'
+p230
+S'<function LOAD>'
+p231
+sS'redirect'
+p232
+S'<function redirect>'
+p233
+sS'FIELDSET'
+p234
+S"<class 'gluon.html.FIELDSET'>"
+p235
+sS'IS_EQUAL_TO'
+p236
+S"<class 'gluon.validators.IS_EQUAL_TO'>"
+p237
+sS'embed64'
+p238
+S'<function embed64>'
+p239
+sS'IS_LIST_OF'
+p240
+S"<class 'gluon.validators.IS_LIST_OF'>"
+p241
+sS'INPUT'
+p242
+S"<class 'gluon.html.INPUT'>"
+p243
+sS'EMBED'
+p244
+S"<class 'gluon.html.EMBED'>"
+p245
+sS'_'
+S'<function _>'
+p246
+sS'myconf'
+p247
+S"{'forms': {'formstyle': 'bootstrap3_inline', 'se...': {'names': 'localhost:*, 127.0.0.1:*, *:*, *'}}"
+p248
+sS'H2'
+p249
+S"<class 'gluon.html.H2'>"
+p250
+sS'H3'
+p251
+S"<class 'gluon.html.H3'>"
+p252
+sS'AppConfig'
+p253
+S'<function AppConfig>'
+p254
+sS'H1'
+p255
+S"<class 'gluon.html.H1'>"
+p256
+sS'H6'
+p257
+S"<class 'gluon.html.H6'>"
+p258
+sS'H4'
+p259
+S"<class 'gluon.html.H4'>"
+p260
+sS'H5'
+p261
+S"<class 'gluon.html.H5'>"
+p262
+sS'UL'
+p263
+S"<class 'gluon.html.UL'>"
+p264
+sS'IS_UPPER'
+p265
+S"<class 'gluon.validators.IS_UPPER'>"
+p266
+sS'xmlescape'
+p267
+S'<function xmlescape>'
+p268
+sS'IS_TIME'
+p269
+S"<class 'gluon.validators.IS_TIME'>"
+p270
+sS'comment'
+p271
+S"<Row {'body': 'hhh', 'animal_id': 1L, 'author': ...time.datetime(2017, 1, 8, 21, 21, 45), 'id': 1L}>"
+p272
+sS'OPTION'
+p273
+S"<class 'gluon.html.OPTION'>"
+p274
+sS'TITLE'
+p275
+S"<class 'gluon.html.TITLE'>"
+p276
+sS'CRYPT'
+p277
+S"<class 'gluon.validators.CRYPT'>"
+p278
+sS'IS_EMPTY_OR'
+p279
+S"<class 'gluon.validators.IS_EMPTY_OR'>"
+p280
+sS'MARKMIN'
+p281
+S"<class 'gluon.html.MARKMIN'>"
+p282
+sS'__name__'
+p283
+S"'__restricted__'"
+p284
+sS'STRONG'
+p285
+S"<class 'gluon.html.STRONG'>"
+p286
+sS'COL'
+p287
+S"<class 'gluon.html.COL'>"
+p288
+sS'IS_EMAIL'
+p289
+S"<class 'gluon.validators.IS_EMAIL'>"
+p290
+sS'service'
+p291
+S'<gluon.tools.Service object>'
+p292
+sS'SCRIPT'
+p293
+S"<class 'gluon.html.SCRIPT'>"
+p294
+sS'vaccine'
+p295
+S"'Yes'"
+p296
+sS'TABLE'
+p297
+S"<class 'gluon.html.TABLE'>"
+p298
+sS'IS_IPV4'
+p299
+S"<class 'gluon.validators.IS_IPV4'>"
+p300
+sS'IS_LENGTH'
+p301
+S"<class 'gluon.validators.IS_LENGTH'>"
+p302
+sS'IS_IPV6'
+p303
+S"<class 'gluon.validators.IS_IPV6'>"
+p304
+sS'XML'
+p305
+S"<class 'gluon.html.XML'>"
+p306
+sS'B'
+S"<class 'gluon.html.B'>"
+p307
+sS'IMG'
+p308
+S"<class 'gluon.html.IMG'>"
+p309
+sS'SQLTABLE'
+p310
+S"<class 'gluon.sqlhtml.SQLTABLE'>"
+p311
+sS'IS_MATCH'
+p312
+S"<class 'gluon.validators.IS_MATCH'>"
+p313
+sS'IS_ALPHANUMERIC'
+p314
+S"<class 'gluon.validators.IS_ALPHANUMERIC'>"
+p315
+sS'kind'
+p316
+S"'Dog'"
+p317
+sS'SPAN'
+p318
+S"<class 'gluon.html.SPAN'>"
+p319
+sS'IS_JSON'
+p320
+S"<class 'gluon.validators.IS_JSON'>"
+p321
+sS'IS_IPADDRESS'
+p322
+S"<class 'gluon.validators.IS_IPADDRESS'>"
+p323
+sS'vaccine_types'
+p324
+S"['Yes', 'No']"
+p325
+sS'IS_SLUG'
+p326
+S"<class 'gluon.validators.IS_SLUG'>"
+p327
+sS'portfolio_enabled'
+p328
+S'False'
+p329
+sS'META'
+p330
+S"<class 'gluon.html.META'>"
+p331
+sS'genders'
+p332
+S"['Female', 'Male']"
+p333
+sS'BUTTON'
+p334
+S"<class 'gluon.html.BUTTON'>"
+p335
+sS'IS_DATE'
+p336
+S"<class 'gluon.validators.IS_DATE'>"
+p337
+sS'menu_items2'
+p338
+S'<function menu_items2>'
+p339
+sS'IS_NOT_EMPTY'
+p340
+S"<class 'gluon.validators.IS_NOT_EMPTY'>"
+p341
+sS'IS_FLOAT_IN_RANGE'
+p342
+S"<class 'gluon.validators.IS_FLOAT_IN_RANGE'>"
+p343
+sS'BEAUTIFY'
+p344
+S"<class 'gluon.html.BEAUTIFY'>"
+p345
+sS'TBODY'
+p346
+S"<class 'gluon.html.TBODY'>"
+p347
+sS'CAT'
+p348
+S"<class 'gluon.html.CAT'>"
+p349
+sS'Field'
+p350
+S"<class 'pydal.objects.Field'>"
+p351
+sS'IS_LIST_OF_EMAILS'
+p352
+S"<class 'gluon.validators.IS_LIST_OF_EMAILS'>"
+p353
+sS'DIV'
+p354
+S"<class 'gluon.html.DIV'>"
+p355
+sS'LEGEND'
+p356
+S"<class 'gluon.html.LEGEND'>"
+p357
+sS'form'
+p358
+S'<gluon.sqlhtml.SQLFORM object>'
+p359
+sS'COLGROUP'
+p360
+S"<class 'gluon.html.COLGROUP'>"
+p361
+sS'DAL'
+p362
+S"<class 'pydal.base.DAL'>"
+p363
+sS'ASSIGNJS'
+p364
+S'<function ASSIGNJS>'
+p365
+sS'TR'
+p366
+S"<class 'gluon.html.TR'>"
+p367
+sS'LI'
+p368
+S"<class 'gluon.html.LI'>"
+p369
+sS'TH'
+p370
+S"<class 'gluon.html.TH'>"
+p371
+sS'TD'
+p372
+S"<class 'gluon.html.TD'>"
+p373
+sS'PluginManager'
+p374
+S"<class 'gluon.tools.PluginManager'>"
+p375
+sS'IS_URL'
+p376
+S"<class 'gluon.validators.IS_URL'>"
+p377
+sS'A'
+S"<class 'gluon.html.A'>"
+p378
+sS'HEAD'
+p379
+S"<class 'gluon.html.HEAD'>"
+p380
+sS'IS_DATETIME_IN_RANGE'
+p381
+S"<class 'gluon.validators.IS_DATETIME_IN_RANGE'>"
+p382
+sS'FORM'
+p383
+S"<class 'gluon.html.FORM'>"
+p384
+sS'I'
+S"<class 'gluon.html.I'>"
+p385
+sS'crud'
+p386
+S'<gluon.tools.Crud object>'
+p387
+sS'IS_NOT_IN_DB'
+p388
+S"<class 'gluon.validators.IS_NOT_IN_DB'>"
+p389
+sg121
+S"<Storage {'body': <cStringIO.StringO object at 0...bda> at 0x07F73970>, 'view': 'animal/view.html'}>"
+p390
+sS'THEAD'
+p391
+S"<class 'gluon.html.THEAD'>"
+p392
+sS'ANY_OF'
+p393
+S"<class 'gluon.validators.ANY_OF'>"
+p394
+sS'IS_NULL_OR'
+p395
+S"<class 'gluon.validators.IS_EMPTY_OR'>"
+p396
+sS'author'
+p397
+S"<Row {'username': 'fdr', 'auth_event': <Set (aut...b54ef2ca64', 'registration_key': '', 'age': 23L}>"
+p398
+sg56
+S"<Storage {'_vars': <Storage {}>, 'function': 'vi...Dev2016\\\\web2py\\\\applications\\\\FindPetDeneme\\\\'}>"
+p399
+sS'IS_EXPR'
+p400
+S"<class 'gluon.validators.IS_EXPR'>"
+p401
+sS'T'
+S'<gluon.languages.translator object>'
+p402
+sS'IS_IN_SET'
+p403
+S"<class 'gluon.validators.IS_IN_SET'>"
+p404
+sS'IS_UPLOAD_FILENAME'
+p405
+S"<class 'gluon.validators.IS_UPLOAD_FILENAME'>"
+p406
+sS'title'
+p407
+S"'Animal - View'"
+p408
+sS'requires'
+p409
+S'<gluon.validators.IS_INT_IN_RANGE object>'
+p410
+sS'TT'
+p411
+S"<class 'gluon.html.TT'>"
+p412
+sS'IS_DECIMAL_IN_RANGE'
+p413
+S"<class 'gluon.validators.IS_DECIMAL_IN_RANGE'>"
+p414
+sssS'traceback'
+p415
+S'Traceback (most recent call last):\n  File "C:\\Users\\dell\\Desktop\\webDev2016\\web2py\\gluon\\restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "C:\\Users\\dell\\Desktop\\webDev2016\\web2py\\applications\\FindPetDeneme\\views\\animal/view.html", line 135, in <module>\nAttributeError: \'str\' object has no attribute \'image\'\n'
+p416
+s.

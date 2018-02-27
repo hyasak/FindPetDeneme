@@ -1,0 +1,126 @@
+{{
+  portfolio_enabled=False  
+  title = "Animal - View"
+}}
+
+{{extend "my_layout.html"}}
+<style>
+
+
+
+.image{
+	padding-top:10px;
+	align="left"
+}
+
+.post-info{
+	margin:10px;
+	align="left"
+}
+
+
+.table{
+	width:400px;
+
+}
+#comments_body{
+height:50px;
+width:500px;
+}
+
+</style>
+<div id="portfolio" class="bottom-border-shadow">
+
+<h2><b>{{=animal.name}} from <a href="{{=URL('default', 'city', args=animal.city.id)}}">{{=animal.city.name}}</a></b></h2>
+ 
+
+<div class="col-md-6">
+<a class="image"><img  src ="{{=URL('default','download', args=animal.image)}}"> </a>
+<div class="post-info" >Posted by: {{=author.username}} on {{=animal.post_date}}
+</div>
+
+</div>
+<div >
+
+	<table class="table">
+	<tr  > <td><b>Kind:</td> {{for kind in animal.kind:}}<td>{{=kind.strip('[]')}} </td> {{pass}}</tr>
+	<tr> <td><b> Age:</td> <td>{{=animal.age}} </td> </tr>
+	<tr> <td><b>Gender:</td> {{for gender in animal.gender:}}<td>{{=gender.strip('[]')}} </td> {{pass}}</tr>
+	<tr> <td> <b>Description:</td> <td>{{=animal.description}}  </td> </tr>
+	<tr> <td><b>Vaccination:</td> {{for vaccine in animal.vaccine:}}<td> {{=vaccine.strip('[]')}}</td> {{pass}}</tr>
+	<tr> <td><b>Owner:</td> <td>
+	<a href="{{=URL('default', 'profile', args=animal.posted_by.username)}}"><b>{{=animal.posted_by.username}} </b></a> 
+	</td> </tr>	
+	</table>
+	{{if auth.user and ( author.id == auth.user.id or
+                    auth.has_membership(role="editor")):}}
+<a class=""href="{{=URL('animal','edit', args=animal.id)}}">Edit this advertisement</a>
+	{{pass}}
+	</div>
+<div class="col-md-12">
+ <div class="carousel slide testimonials" id="testimonials1">
+{{if len(comments):}}
+<div class="carousel-inner">
+<div class="item active">
+{{for comment in comments:}}
+ <div class="col-md-12">
+    <p>
+     {{=comment.body}}
+    </p>
+ <div class="testimonial-info">
+    
+         <span class="testimonial-author">
+            {{=comment.author}}
+             
+         </span>
+</div>
+</div>
+{{pass}}
+{{if comment.author==auth.user:}} 
+ <a >Edit Comment:</a>
+   {{=form2}}
+ {{pass}}
+</div>
+
+{{else:}}
+
+<h3>No comments posted yet</h1>
+
+{{pass}}
+											
+{{if auth.is_logged_in():}}
+										
+Post a comment if you want:
+{{=form}}
+ 
+
+{{else:}}
+Please <a href="{{=URL('default', 'user', args='login',vars=dict(_next=request.env.path_info))}}">login</a> 
+or <a href="{{=URL('default', 'user', args='register',vars=dict(_next=request.env.path_info))}}">sign up</a> to comment...
+{{pass}}
+
+</div>
+</div>
+</div>
+</div>
+											
+<!-- <div class="col-md-8"> -->
+<!-- {{if len(comments):}} -->
+  <!-- <h2>Comments</h2><br /><p> -->
+  <!-- {{for comment in comments:}} -->
+    <!-- <p>{{=comment.author}} says <i>{{=comment.body}}</i></p> -->
+  <!-- {{pass}}</p> -->
+<!-- {{else:}} -->
+  <!-- <h1>No comments posted yet</h1> -->
+<!-- {{pass}} -->
+
+<!-- {{if auth.is_logged_in():}}
+<p>Post a comment if you want:<p/>
+{{=form}}
+{{else:}}
+Please <a href="{{=URL('default', 'user', args='login',vars=dict(_next=request.env.path_info))}}">login</a> 
+or <a href="{{=URL('default', 'user', args='register',vars=dict(_next=request.env.path_info))}}">sign up</a> to comment...
+{{pass}}
+</div>
+</div> --> 
+

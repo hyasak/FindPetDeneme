@@ -1,0 +1,40 @@
+{{
+  portfolio_enabled=False
+  active = "animals" 
+  title = "All Animals"
+}}
+
+{{extend "my_layout.html"}}
+<h2><b>{{=title}}</b></h2>
+<div id="portfolio" class="bottom-border-shadow">
+                <div class="container bottom-border">
+                    <div class="row padding-top-40">
+                        <ul class="portfolio-group">
+                            <!-- Portfolio Item -->
+							{{if auth.user:}}
+							{{for animal in animals:}}
+                            <li class="portfolio-item col-sm-4 col-xs-6 margin-bottom-40">
+							{{=A(animal.name, _href=URL('animal', 'view', args=animal.id))}} - {{=A(animal.posted_by.username,_href=URL("default", "profile", args=animal.posted_by.username))}}
+									<a href="{{=URL('animal', 'view', args=animal.id)}}">
+                                    <figure class="animate fadeInLeft" >
+                                        <img src="{{=URL('download', args=animal.image)}}">
+                                        <figcaption >
+                                            <h3>{{=animal.name}}</h3>
+                                            <span>{{=animal.description}}</span>
+                                        </figcaption>
+                                    </figure>
+									</a>
+							</li>
+							{{pass}}			
+							
+							{{else:}}
+							<li class="portfolio-item col-sm-4 col-xs-6 margin-bottom-40">Please <a href="{{=URL('default', 'user', args='login', vars=dict(_next=request.env.path_info))}}">
+							login </a>to continue...</li>
+							</ul> 
+							</div>
+							{{pass}}
+
+                           
+                    </div>
+                </div>
+          

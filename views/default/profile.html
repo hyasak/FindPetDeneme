@@ -1,0 +1,61 @@
+{{
+  portfolio_enabled= False
+  active = "profile"
+  title = "My Profile"
+}}
+
+{{extend "my_layout.html"}}
+<style>
+.article{
+  width:900px;
+}
+.image{
+	width:50%;
+	height:40%;
+	align="left"
+	
+}
+
+
+.table{
+	width:400px;
+}
+
+ 
+</style>
+{{if user:}}
+<h1 id="head"><b>Profile</b></h1>
+
+<div class="article">
+<div class="col-md-6">
+  <img class="image" src ="{{=URL('default','download', args=user.image)}}"> 
+
+</div>
+
+
+<div class="col-md-6>
+<!-- border=1 cellspacing=1  cellpadding="10" -->
+	<table class="table">
+	<tr  > <td><b>Name:</td> <td>{{=user.username}} </td> </tr>
+	<tr> <td><b> Age:</td> <td>{{=user.age}} </td> </tr>
+	<tr> <td><b>City:</td> <td>{{=user.city}} </td> </tr>
+	<tr> <td> <b>Biography:</td> <td>{{=user.bio}}  </td> </tr>
+	<tr> <td><b>E-mail:</td> <td> {{=user.email}}</td> </tr>
+	
+	</table>
+	{{if user:}}
+	{{if auth.user and (user.id==auth.user.id):}}
+	<p><a href="{{=URL('default', 'user',args='register', vars=dict(_next=request.env.path_info))}}">Edit the profile</a></p>
+	
+	{{pass}}
+{{else:}}
+Please <a href="{{=URL('default', 'user', args='login',
+
+		vars=dict(_next=request.env.path_info))}}"><b>login</b></a> to see this page.
+{{pass}}
+{{else:}}
+<p>No such an user exist</p>
+{{pass}}
+</div>
+</div>
+ 

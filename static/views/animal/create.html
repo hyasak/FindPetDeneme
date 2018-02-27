@@ -1,0 +1,20 @@
+{{
+  portfolio_enabled=False  
+  title = "Animal - Create"
+}}
+{{extend 'my_layout.html'}}
+
+<h2>Submit a new advertisement</h2>
+
+
+<table class="table" > 
+
+{{if auth.user:}}
+{{=A(form)}}
+{{else:}} 
+Please <a href="{{=URL('default', 'user', args='login',vars=dict(_next=request.env.path_info))}}">login</a> 
+or <a href="{{=URL('default', 'user', args='register',vars=dict(_next=request.env.path_info))}}">sign up</a> to add advertisement...
+
+{{pass}}
+
+</table>

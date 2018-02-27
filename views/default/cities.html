@@ -1,0 +1,17 @@
+{{ 
+portfolio_enabled=False
+title = "Cities Page"
+active = "cities" }}
+{{extend "my_layout.html"}}
+<h2><b>{{=title}}</b></h2>
+<div class="article">
+ {{for city in cities:}} 
+ <ul >
+   
+   <li><a href="{{=URL('default', 'city', args=city.city.id)}}">{{=city.city.name}}</a></li>
+   
+ </ul>
+ {{pass}}
+ </div>
+
+
